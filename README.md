@@ -17,6 +17,8 @@ The visual inspiration comes from this set of [Minecraft version specific launch
 
 The goal of this project has been to reverse-engineer the assets and generation flow behind AstroTibs' original icons, so the framework can recreate them programmatically.
 
+After that baseline, the icon set in this repo was extended with newer versions after 1.21.
+
 ## Building
 
 To build icons, you need a Unix-like environment with ImageMagick 7 or later.
