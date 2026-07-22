@@ -13,35 +13,40 @@ The default location is the `icons` folder under your Prism Launcher configurati
 
 ## Background and Inspiration
 
-The visual inspiration comes from this gallery:
-https://imgur.com/a/multimc-version-icons-nMaJATh
-
-That icon set was originally posted by AstroTibs:
-https://www.reddit.com/user/AstroTibs/
-
-Original thread:
-https://www.reddit.com/r/MultiMC/comments/fz43v4/even_more_perversion_icons/
+The visual inspiration comes from this set of [Minecraft version specific launcher icons](https://imgur.com/a/multimc-version-icons-nMaJATh). That icon set was originally posted by [AstroTibs](https://www.reddit.com/user/AstroTibs) on [Reddit](https://www.reddit.com/r/MultiMC/comments/fz43v4/even_more_perversion_icons).
 
 The goal of this project has been to reverse-engineer the assets and generation flow behind AstroTibs' original icons, so the framework can recreate them programmatically.
 
-After that baseline, the icon set in this repo was extended with newer versions after 1.21.
+## Building
 
-## What You Can Customize
+To build icons, you need a Unix-like environment with ImageMagick 7 or later.
+
+Main scripts in `bin`:
+- `create_icon.sh`: generate one icon
+- `create_series.sh`: generate one full series from version-index.txt
+- `create_all_icons.sh`: generate multiple series from series-index.txt
+
+Typical flow:
+1. Edit `series-index.txt` and `version-index.txt`
+2. Run `bin/create_all_icons.sh`
+3. Collect output under `icons/<series-id>/`
+
+### What You Can Customize
 
 You can create your own icon series by editing:
-- series-index.txt
-- version-index.txt
+- `series-index.txt`
+- `version-index.txt`
 
-### series-index.txt
+#### series-index.txt
 
 Format per line:
-- <id> <background-img>
+- `<id> <background-img>`
 
 Example:
-- mc grass_block.png
-- test tnt.png
-- forge anvil.png
-- fabric loom.png
+- `mc grass_block.png`
+- `test tnt.png`
+- `forge anvil.png`
+- `fabric loom.png`
 
 Meaning:
 - id becomes the output directory name under icons/.
@@ -49,13 +54,13 @@ Meaning:
 
 So a series with id mc writes to icons/mc/.
 
-### version-index.txt
+#### version-index.txt
 
 Format per line:
-- <version> <overlay-file> <effect> <version-name>
+- `<version> <overlay-file> <effect> <version-name>`
 
 Example:
-- 1.2 1.2_ocelot.png shadow Release_1.2
+- `1.2 1.2_ocelot.png shadow Release_1.2`
 
 Meaning:
 - version is rendered as the text badge.
@@ -63,49 +68,32 @@ Meaning:
 - effect is one of: none, shadow, glow.
 - version-name is used in output filenames.
 
-## Alt Mechanism
+### Alt Mechanism
 
-Use an explicit alt path in version-index.txt:
-
-1) Explicit alt path in version-index.txt
-- Example overlay-file: alt/1.17_amethyst_cluster.png
-
-When an alt overlay is used, output is written to an alt subdirectory under the current output directory.
+If you add a file with an `alt/` prefix in version-index.txt, the output with that overlay is written to an alt subdirectory under the current output directory.
 Example:
-- icons/mc/alt/1.17-Caves_And_Cliffs_Part_I-amethyst_cluster.png
+- `1.17-Caves_And_Cliffs_Part_I alt/1.17-Caves_And_Cliffs_Part_I-amethyst_cluster.png shadow Release_1.17_Caves_And_Cliffs_Part_I` will result in the output file `icons/mc/alt/1.17-Caves_And_Cliffs_Part_I-amethyst_cluster.png`.
 
-## Effects
+### Effects
 
 Supported effects:
-- none: no decoration behind overlay
-- shadow: soft black shadow under overlay
-- glow: color-derived glow around overlay
+- `none`: no decoration behind overlay
+- `shadow`: soft black shadow under overlay
+- `glow`: color-derived glow around overlay
 
 These are controlled per row in version-index.txt.
 
-## Overlay Requirement
+### Overlay Requirement
 
 Overlays must be exactly 128x128 pixels.
 
 This is validated during icon generation.
 
-## Extending Backgrounds with Series
+### Extending Backgrounds with Series
 
 To add more background themes, add image files to backgrounds/ and reference them in series-index.txt with new series ids.
 
 Each series can generate the full version set with the same overlay/version data but a different background.
-
-## Scripts
-
-Main scripts in bin/:
-- create_icon.sh: generate one icon
-- create_series.sh: generate one full series from version-index.txt
-- create_all_icons.sh: generate multiple series from series-index.txt
-
-Typical flow:
-1. Edit series-index.txt and version-index.txt
-2. Run bin/create_all_icons.sh
-3. Collect output under icons/<series-id>/
 
 ## Asset Usage Notice
 
@@ -118,8 +106,9 @@ https://www.minecraft.net/en-us/usage-guidelines
 
 ## Disclaimer
 
-NOT AN OFFICIAL MINECRAFT PROJECT.
-NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.
+**NOT AN OFFICIAL MINECRAFT PROJECT.**
+
+**NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.**
 
 This project is not affiliated with, endorsed by, or sponsored by Mojang,
 Microsoft, Prism Launcher, MultiMC, or PolyMC.
