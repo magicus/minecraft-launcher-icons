@@ -16,11 +16,18 @@ permissions:
 
 jobs:
   build-and-release:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
 
     steps:
       - name: Check out source code
         uses: actions/checkout@v5
+
+      - name: Install ImageMagick
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick
+
+          magick -version
 
       - name: Resolve tag and version
         id: meta
