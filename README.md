@@ -7,7 +7,7 @@ This repository provides two things:
 
 ## Installation
 
-To install these icons, download the latest release from the releases page, and unzip the file into your Prism Launcher icons directory.
+To install these icons, download the latest release from the [releases page](https://github.com/magicus/minecraft-launcher-icons/releases), and unzip the file into your Prism Launcher icons directory. At the time of writing, the latest release is [1.0.0+1.21](https://github.com/magicus/minecraft-launcher-icons/releases/download/v1.0.0%2B1.21/minecraft-launcher-icons-1.0.0+1.21.zip).
 
 The default location is the `icons` folder under your Prism Launcher configuration directory. This location can be changed in Settings > General > Folders > Icons. You can also use the Browse button in the settings to open this folder.
 
