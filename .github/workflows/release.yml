@@ -1,0 +1,73 @@
+name: Release Minecraft Launcher Icons on tag
+
+on:
+  push:
+    tags:
+      - "*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag to release (for example v1.0.0+26.2 or 1.0.0+26.2)"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out source code
+        uses: actions/checkout@v5
+
+      - name: Resolve tag and version
+        id: meta
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            tag="${{ inputs.tag }}"
+          else
+            tag="${GITHUB_REF_NAME}"
+          fi
+
+          version="${tag#v}"
+
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+          echo "Tag: $tag"
+          echo "Version: $version"
+
+      - name: Install parse-changelog
+        uses: taiki-e/install-action@v2
+        with:
+          tool: parse-changelog
+
+      - name: Prepare release notes
+        id: notes
+        run: |
+          mkdir -p output
+          notes_file="output/release-notes.md"
+
+          parse-changelog CHANGELOG.md "${{ steps.meta.outputs.version }}" > "$notes_file"
+
+          if [[ ! -s "$notes_file" ]]; then
+            echo "No changelog entry found for version: ${{ steps.meta.outputs.version }}"
+            exit 1
+          fi
+
+          echo "file=$notes_file" >> "$GITHUB_OUTPUT"
+
+      - name: Build release archive
+        run: |
+          chmod +x bin/create_release.sh
+          ./bin/create_release.sh --version "${{ steps.meta.outputs.version }}"
+
+      - name: Publish GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.meta.outputs.tag }}
+          name: Minecraft Launcher Icons ${{ steps.meta.outputs.version }}
+          body_path: ${{ steps.notes.outputs.file }}
+          files: releases/minecraft-launcher-icons-${{ steps.meta.outputs.version }}.zip

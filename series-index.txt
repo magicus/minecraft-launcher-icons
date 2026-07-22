@@ -1,0 +1,8 @@
+# series-index.txt
+# Format (whitespace separated):
+#   <id> <background-img>
+
+mc grass_block.png
+test tnt.png
+forge anvil.png
+fabric loom.png

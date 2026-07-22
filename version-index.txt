@@ -1,0 +1,27 @@
+# version-index.txt
+# Format (whitespace separated):
+#   <version> <overlay-file> <effect> <version-name>
+
+1.0 1.0_ender_dragon.png none Adventure_Update
+1.1 1.1_spawn_egg.png none Release_1.1
+1.2 1.2_ocelot.png shadow Release_1.2
+1.3 1.3_emerald.png glow Release_1.3
+1.4 1.4_wither_skeleton.png glow Pretty_Scary_Update
+1.5 1.5_redstone_block.png glow Redstone_Update
+1.6 1.6_horse.png shadow Horse_Update
+1.7 1.7_peony.png none The_Update_That_Changed_The_World
+1.8 1.8_guardian.png shadow Bountiful_Update
+1.9 1.9_tipped_arrow.png glow Combat_Update
+1.10 1.10_polar_bear.png shadow Frostburn_Update
+1.11 1.11_explorer_map.png shadow Exploration_Update
+1.12 1.12_glazed_terracotta.png shadow World_Of_Color_Update
+1.13 1.13_trident.png none Update_Aquatic
+1.14 1.14_crossbow.png none Village_And_Pillage
+1.15 1.15_bee.png shadow Buzzy_Bees
+1.16 1.16_netherite_ingot.png shadow Nether_Update
+1.17 1.17_cave.png none Caves_And_Cliffs_Part_I
+1.17 alt/1.17_amethyst_cluster.png none Caves_And_Cliffs_Part_I
+1.18 1.18_deepslate.png shadow Caves_And_Cliffs_Part_II
+1.19 1.19_sculk_sensor.png glow The_Wild_Update
+1.20 1.20_brush.png none Trails_And_Tales
+1.21 1.21_mace.png none Tricky_Trials
