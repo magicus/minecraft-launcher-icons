@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.0+26.3 - 2026-09-18
+
+### Added
+- Added a new series "prism", featuring the default prism grass icon from the Prism Launcher project as background.
+
 ## 1.0.0+26.3 - 2026-09-18
 
 ### Added

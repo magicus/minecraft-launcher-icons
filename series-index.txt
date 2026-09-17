@@ -6,3 +6,4 @@ mc grass_block.png
 test tnt.png
 forge anvil.png
 fabric loom.png
+prism prism_grass.png

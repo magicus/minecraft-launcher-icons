@@ -110,6 +110,8 @@ by Mojang/Microsoft.
 This project uses those materials under Mojang's Minecraft Usage Guidelines:
 https://www.minecraft.net/en-us/usage-guidelines
 
+The prism grass icon comes from the [Prism Launcher](https://github.com/PrismLauncher/PrismLauncher) project, and is distributed under [GPLv3](https://github.com/PrismLauncher/PrismLauncher/blob/develop/LICENSE).
+
 ## Disclaimer
 
 **NOT AN OFFICIAL MINECRAFT PROJECT.**
