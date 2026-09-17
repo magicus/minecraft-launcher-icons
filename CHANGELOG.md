@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.0+26.3 - 2026-09-18
+
+### Added
+
+- Support Minecraft version 26.3, "Wilderness Bound"
+  - The new icon uses an abandoned camp explorer map as overlay
+
 ## 1.0.0+26.2 - 2026-07-22
 
 ### Added
