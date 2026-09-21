@@ -1,4 +1,6 @@
 # Minecraft Launcher Icons
+[![GitHub](https://img.shields.io/github/downloads/magicus/minecraft-launcher-icons/total?logo=github)](https://github.com/magicus/minecraft-launcher-icons/releases)
+
 
 This repository provides two things:
 
